@@ -1,4 +1,4 @@
-package com.karya.livedataviewmodel.activities
+package com.karya.livedataviewmodel.NotesApp.activities
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity

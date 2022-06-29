@@ -1,16 +1,16 @@
-package com.karya.livedataviewmodel
+package com.karya.livedataviewmodel.NotesApp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.karya.livedataviewmodel.database.NotesDatabase
-import com.karya.livedataviewmodel.modelClass.Notes
+import com.karya.livedataviewmodel.NotesApp.database.NotesDatabase
+import com.karya.livedataviewmodel.NotesApp.repository.Repository
+import com.karya.livedataviewmodel.NotesApp.room.entity.Notes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ViewModel(application: Application) : AndroidViewModel(application) {
-
 
     private val repository: Repository
     val readAllNotes : LiveData<List<Notes>>

@@ -10,6 +10,8 @@
         <entry key="..\:/AndroidProjects/MVVM LiveData ViewModel RecyclerView/app/src/main/res/layout/content_note_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/MVVM LiveData ViewModel RecyclerView/app/src/main/res/layout/dialog_add_new_note.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/MVVM LiveData ViewModel RecyclerView/app/src/main/res/layout/dialog_update_note.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/MVVM LiveData ViewModel RecyclerView/app/src/main/res/layout/fragment_first.xml" value="0.22" />
+        <entry key="..\:/AndroidProjects/MVVM LiveData ViewModel RecyclerView/app/src/main/res/layout/fragment_second.xml" value="0.22" />
         <entry key="..\:/AndroidProjects/MVVM LiveData ViewModel RecyclerView/app/src/main/res/layout/item_notes.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/MVVM LiveData ViewModel RecyclerView/app/src/main/res/menu/delete_all_notes.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/MVVM LiveData ViewModel RecyclerView/app/src/main/res/menu/search_view.xml" value="0.20416666666666666" />

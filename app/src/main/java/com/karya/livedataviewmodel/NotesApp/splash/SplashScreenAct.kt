@@ -1,9 +1,10 @@
-package com.karya.livedataviewmodel
+package com.karya.livedataviewmodel.NotesApp.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.karya.livedataviewmodel.activities.MainActivity
+import com.karya.livedataviewmodel.NotesApp.activities.MainActivity
+import com.karya.livedataviewmodel.R
 import com.karya.livedataviewmodel.databinding.ActivitySplashScreenBinding
 
 class SplashScreenAct : AppCompatActivity(R.layout.activity_splash_screen) {

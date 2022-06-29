@@ -1,4 +1,4 @@
-package com.karya.livedataviewmodel.adapter
+package com.karya.livedataviewmodel.NotesApp.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 
 import androidx.recyclerview.widget.RecyclerView
-import com.karya.livedataviewmodel.activities.NoteDetailActivity
-import com.karya.livedataviewmodel.modelClass.Notes
+import com.karya.livedataviewmodel.NotesApp.activities.NoteDetailActivity
+import com.karya.livedataviewmodel.NotesApp.room.entity.Notes
 import com.karya.livedataviewmodel.R
 
 class NotesAdapter(private val c : Context,private var notes: List<Notes> = emptyList<Notes>()): RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
@@ -25,7 +25,7 @@ class NotesAdapter(private val c : Context,private var notes: List<Notes> = empt
     var onItemClick : ((Notes) -> Unit)? = null
     var onImageClick  : ((Notes) -> Unit)?  = null
 
-    private val diffCallBack = object : DiffUtil.ItemCallback<String>(){
+    /*private val diffCallBack = object : DiffUtil.ItemCallback<String>(){
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
            return true
         }
@@ -35,7 +35,7 @@ class NotesAdapter(private val c : Context,private var notes: List<Notes> = empt
         }
     }
 
-    val differ = AsyncListDiffer(this,diffCallBack)
+    val differ = AsyncListDiffer(this,diffCallBack)*/
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -49,7 +49,7 @@ class NotesAdapter(private val c : Context,private var notes: List<Notes> = empt
         holder.tvNoteTitle.text = currentItems.noteTitle
         holder.tvNoteDescription.text = currentItems.noteDescription
         holder.tvDate.text = currentItems.noteDate
-        /*holder.itemView.findViewById<TextView>(R.id.itemNoteTitle)*/
+        holder.itemView.findViewById<TextView>(R.id.itemNoteTitle)
 
         /** RecyclerView Item onClickListener */
         holder.itemView.setOnClickListener {
@@ -58,6 +58,11 @@ class NotesAdapter(private val c : Context,private var notes: List<Notes> = empt
         holder.moreItemImage.setOnClickListener {
             onImageClick?.invoke(notes[position])
         }
+
+        /*if(currentItems != null){
+            holder.bind(notes)
+        }*/
+
 
         /** Put Data to Activity */
         /*holder.itemView.setOnClickListener {
@@ -99,6 +104,11 @@ class NotesAdapter(private val c : Context,private var notes: List<Notes> = empt
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+       /* fun bind(modelClass: List<Notes>){
+            notes = modelClass
+        }*/
+
         val tvNoteTitle: TextView =itemView.findViewById(R.id.itemNoteTitle)
         val tvNoteDescription: TextView =itemView.findViewById(R.id.itemNoteDescription)
         val moreItemImage: ImageView = itemView.findViewById(R.id.itemMore)

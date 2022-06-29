@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LiveDataViewModel">
         <activity
-            android:name=".SplashScreenAct"
+            android:name=".NotesApp.splash.SplashScreenAct"
             android:theme="@style/SplashScreenTheme"
             android:exported="true">
 
@@ -23,12 +23,12 @@
         </activity>
 
         <activity
-            android:name=".activities.NoteDetailActivity"
+            android:name=".NotesApp.activities.NoteDetailActivity"
             android:exported="false"
             android:label="@string/title_activity_note_detail"
             android:theme="@style/Theme.LiveDataViewModel.NoActionBar" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".NotesApp.activities.MainActivity"
             android:exported="true">
         </activity>
     </application>

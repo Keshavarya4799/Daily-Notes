@@ -1,4 +1,4 @@
-package com.karya.livedataviewmodel.modelClass
+package com.karya.livedataviewmodel.NotesApp.room.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

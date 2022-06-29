@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     tools:menu="@menu/delete_all_notes"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    tools:context=".NotesApp.activities.MainActivity">
 
     <TextView
         android:id="@+id/mainTvTitle"
@@ -44,7 +44,76 @@
         android:backgroundTint="@color/white"
         android:elevation="12dp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabBtnNoteDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        app:fabSize="mini"
+        android:elevation="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabBtnAddNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/black"
+        app:fabSize="mini"
+        android:elevation="12dp"
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@+id/fabBtnNoteDetail"
+        app:layout_constraintEnd_toEndOf="@+id/fabBtnNoteDetail"
+        app:layout_constraintStart_toStartOf="@+id/fabBtnNoteDetail"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:tint="@color/white" />
+
+
+    <TextView
+        android:id="@+id/tvNoteDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note Detail"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fabBtnNoteDetail"
+        app:layout_constraintEnd_toStartOf="@+id/fabBtnNoteDetail"
+        app:layout_constraintTop_toTopOf="@+id/fabBtnNoteDetail" />
+
+
+    <TextView
+        android:id="@+id/tvAddNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Note"
+        android:textColor="@color/black"
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:textSize="18sp"
+        android:layout_marginEnd="4dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/fabBtnAddNote"
+        app:layout_constraintEnd_toStartOf="@+id/fabBtnAddNote"
+        app:layout_constraintTop_toTopOf="@+id/fabBtnAddNote" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,9 @@
-package com.karya.livedataviewmodel
+package com.karya.livedataviewmodel.NotesApp.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.Dao
-import com.karya.livedataviewmodel.modelClass.Notes
+import com.karya.livedataviewmodel.NotesApp.room.entity.Notes
 
 
 @Dao

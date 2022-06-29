@@ -1,7 +1,8 @@
-package com.karya.livedataviewmodel
+package com.karya.livedataviewmodel.NotesApp.repository
 
 import androidx.lifecycle.LiveData
-import com.karya.livedataviewmodel.modelClass.Notes
+import com.karya.livedataviewmodel.NotesApp.room.entity.Notes
+import com.karya.livedataviewmodel.NotesApp.room.dao.Dao
 
 class Repository(private val dao: Dao) {
 

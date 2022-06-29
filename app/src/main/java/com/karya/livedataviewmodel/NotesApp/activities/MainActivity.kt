@@ -1,4 +1,4 @@
-package com.karya.livedataviewmodel.activities
+package com.karya.livedataviewmodel.NotesApp.activities
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -8,15 +8,17 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.text.format.DateFormat
 import android.view.*
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.karya.livedataviewmodel.modelClass.Notes
+import com.karya.livedataviewmodel.NotesApp.room.entity.Notes
 import com.karya.livedataviewmodel.R
-import com.karya.livedataviewmodel.ViewModel
-import com.karya.livedataviewmodel.adapter.NotesAdapter
+import com.karya.livedataviewmodel.NotesApp.viewmodel.ViewModel
+import com.karya.livedataviewmodel.NotesApp.adapter.NotesAdapter
 import com.karya.livedataviewmodel.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 
@@ -30,6 +32,32 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private lateinit var notes: Notes
     private lateinit var binding: ActivityMainBinding
     var oldListNotes = arrayListOf<Notes>()
+    private var clicked = false
+
+    private val rotateOpen: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            this,
+            R.anim.rotate_open
+        )
+    }
+    private val rotateClose: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            this,
+            R.anim.rotate_close
+        )
+    }
+    private val fromBottom: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            this,
+            R.anim.from_botoom_anim
+        )
+    }
+    private val toBottom: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            this,
+            R.anim.to_bottom_anil
+        )
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,8 +79,24 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         hideScrollViewWhileScrolling()
 
         binding.floatingActionButton.setOnClickListener {
-            showAddNoteDialog()
+            //showAddNoteDialog()
+            showMiniFabBtn()
 
+        }
+        binding.fabBtnAddNote.setOnClickListener{
+            showAddNoteDialog()
+        }
+        binding.tvAddNote.setOnClickListener {
+            showAddNoteDialog()
+        }
+
+        binding.fabBtnNoteDetail.setOnClickListener{
+            val intent = Intent(this, NoteDetailActivity::class.java)
+            startActivity(intent)
+        }
+        binding.tvNoteDetail.setOnClickListener {
+            val intent = Intent(this, NoteDetailActivity::class.java)
+            startActivity(intent)
         }
 
         /*adapter.onItemClick = { notes ->
@@ -66,6 +110,74 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         noteAdapter.onImageClick = { notes ->
             showActionDialog(notes)
+        }
+    }
+
+    private fun showMiniFabBtn() {
+        setVisibility(clicked)
+        setAnimation(clicked)
+        setClickable(clicked)
+        clicked = !clicked
+    }
+    private fun setAnimation(clicked: Boolean) {
+        if (!clicked) {
+            binding.fabBtnNoteDetail.startAnimation(fromBottom)
+            binding.fabBtnAddNote.startAnimation(fromBottom)
+
+
+            binding.tvAddNote.startAnimation(fromBottom)
+            binding.tvNoteDetail.startAnimation(fromBottom)
+
+            binding.floatingActionButton.startAnimation(rotateOpen)
+        } else {
+            binding.fabBtnNoteDetail.startAnimation(toBottom)
+            binding.fabBtnAddNote.startAnimation(toBottom)
+
+
+            binding.tvAddNote.startAnimation(toBottom)
+            binding.tvNoteDetail.startAnimation(toBottom)
+
+            binding.floatingActionButton.startAnimation(rotateClose)
+        }
+    }
+
+    private fun setVisibility(clicked: Boolean) {
+        if (!clicked) {
+            binding.fabBtnAddNote.visibility = View.VISIBLE
+            binding.fabBtnNoteDetail.visibility = View.VISIBLE
+
+
+            binding.tvAddNote.visibility = View.VISIBLE
+            binding.tvNoteDetail.visibility = View.VISIBLE
+
+
+        } else {
+            binding.fabBtnAddNote.visibility = View.GONE
+            binding.fabBtnNoteDetail.visibility = View.GONE
+
+
+            binding.tvAddNote.visibility = View.GONE
+            binding.tvNoteDetail.visibility = View.GONE
+        }
+
+    }
+
+    private fun setClickable(clicked: Boolean) {
+        if (!clicked) {
+            binding.fabBtnAddNote.isClickable = true
+            binding.fabBtnNoteDetail.isClickable = true
+
+
+            binding.tvAddNote.isClickable = true
+            binding.tvNoteDetail.isClickable = true
+
+        } else {
+            binding.fabBtnAddNote.isClickable = false
+            binding.fabBtnNoteDetail.isClickable = false
+
+
+            binding.tvAddNote.isClickable = false
+            binding.tvNoteDetail.isClickable = false
         }
     }
 
